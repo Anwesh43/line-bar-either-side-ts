@@ -50,3 +50,56 @@ export const useDimension = () => {
     }
 }
 
+export const useStyle = (w : number, h : number, scale : number) => {
+    const lineSize : number = Math.min(w, h) / 4 
+    const x : number = w / 2 
+    const y : number = h / 2
+    const barW : number = Math.min(w, h) / 20 
+    const barH : number = lineSize 
+    const position = 'absolute'
+    const sf : number = sinify(scale)
+    const background : string = '#01579B'
+    return {
+        parentStyle() : CSSProperties {
+            const left : string = `${x}px`
+            const top : string = `${y}px`
+            return {
+                position, 
+                left, 
+                top
+            }
+        },
+
+        lineStyle() : CSSProperties {
+            const a : number = lineSize * divideScale(sf, 0, 2)
+            const left : string = `${a / 2}px`
+            const width : string = `${a}px`
+            const height : string = `${a}px`
+            return {
+                position,
+                left, 
+                background,
+                width, 
+                height 
+            }
+        },
+        
+        barStyle(i : number) : CSSProperties {
+            const a : number = barH / (i + 1)
+            const b : number = -lineSize / 2 + (lineSize - barW) * i 
+            const left : string = `${b}px`
+            const width : string = `${barW}px`
+            const top : string = `${-a}px`
+            const height : string = `${b}px`
+            return {
+                position,
+                left, 
+                top, 
+                width, 
+                height, 
+                background
+
+            }
+        }
+    }
+}
