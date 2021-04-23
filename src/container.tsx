@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {useAnimatedScale, useDimension} from './hooks'
 
-const withContainer  = (component : React.FC<any>) => {
+const withContainer  = (Child : React.FC<any>) : React.FC<any> => {
     const {scale, start : onClick} = useAnimatedScale()
     const {w, h} = useDimension()
     const props = {
@@ -10,7 +10,7 @@ const withContainer  = (component : React.FC<any>) => {
         h, 
         onClick 
     }
-    return <Component {...props}/>
+    return () => <Child {...props}/>
 }
 
 export default withContainer
