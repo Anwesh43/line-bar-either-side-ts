@@ -100,6 +100,13 @@ export const useStyle = (w : number, h : number, scale : number) => {
                 background
 
             }
-        }
+        },
+
+        buttonStyle() : CSSProperties {
+            const display : string = scale == 0? 'block': 'none'
+            return {
+                display
+            }
+        } 
     }
 }
