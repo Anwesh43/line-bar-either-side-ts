@@ -20,7 +20,7 @@ export const useAnimatedScale : Function = () => {
                 setAnimated(true)
                 const interval = setInterval(() => {
                     setScale((prev : number) => {
-                        if (scale > 1) {
+                        if (prev > 1) {
                             setAnimated(false)
                             clearInterval(interval)
                             return 0 
@@ -103,7 +103,8 @@ export const useStyle = (w : number, h : number, scale : number) => {
         },
 
         buttonStyle() : CSSProperties {
-            const display : string = scale <= 0.1? 'block': 'none'
+            const display : string = scale <= 0.02? 'block': 'none'
+            //console.log(display)
             return {
                 display
             }
