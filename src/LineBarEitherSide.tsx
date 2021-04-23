@@ -1,6 +1,6 @@
 import React from 'react'
 import {useStyle} from './hooks'
-
+import withContainer from './container'
 interface LineBarProps {
     w : number, 
     h : number, 
@@ -21,4 +21,4 @@ const LineBarEitherSide : React.FC<LineBarProps> = (props : LineBarProps) => {
     </div>   
 }
 
-export default LineBarEitherSide
+export default withContainer(LineBarEitherSide)
