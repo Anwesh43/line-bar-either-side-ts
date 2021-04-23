@@ -72,9 +72,9 @@ export const useStyle = (w : number, h : number, scale : number) => {
 
         lineStyle() : CSSProperties {
             const a : number = lineSize * divideScale(sf, 0, 2)
-            const left : string = `${a / 2}px`
+            const left : string = `${-a / 2}px`
             const width : string = `${a}px`
-            const height : string = `${a}px`
+            const height : string = `${Math.min(w, h) / 60}px`
             return {
                 position,
                 left, 
@@ -89,8 +89,8 @@ export const useStyle = (w : number, h : number, scale : number) => {
             const b : number = -lineSize / 2 + (lineSize - barW) * i 
             const left : string = `${b}px`
             const width : string = `${barW}px`
-            const top : string = `${-a}px`
-            const height : string = `${b}px`
+            const top : string = `${-a * divideScale(sf, 1, 2)}px`
+            const height : string = `${a * divideScale(sf, 1, 2)}px`
             return {
                 position,
                 left, 
@@ -103,7 +103,7 @@ export const useStyle = (w : number, h : number, scale : number) => {
         },
 
         buttonStyle() : CSSProperties {
-            const display : string = scale == 0? 'block': 'none'
+            const display : string = scale <= 0.1? 'block': 'none'
             return {
                 display
             }

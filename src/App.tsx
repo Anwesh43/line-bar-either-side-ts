@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import LineBarEitherSide from './LineBarEitherSide'
+import Container from './container';
 
 function App() {
   return (
     <div className="App">
-      <LineBarEitherSide>
-      </LineBarEitherSide>
+      <Container>
+      </Container>
     </div>
   );
 }

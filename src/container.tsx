@@ -1,16 +1,19 @@
 import React, {Component} from 'react'
 import {useAnimatedScale, useDimension} from './hooks'
+import LineBarEitherSide from './LineBarEitherSide'
 
-const withContainer  = (Child : React.FC<any>) : React.FC<any> => {
+
+
+const Container : React.FC<any> = (props: any) => {
     const {scale, start : onClick} = useAnimatedScale()
     const {w, h} = useDimension()
-    const props = {
-        w,
-        scale, 
+    const lineBarProps = {
+        w, 
         h, 
-        onClick 
+        scale, 
+        onClick
     }
-    return () => <Child {...props}/>
+    return <LineBarEitherSide {...lineBarProps}></LineBarEitherSide>
 }
 
-export default withContainer
+export default Container

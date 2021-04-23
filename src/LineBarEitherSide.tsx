@@ -21,4 +21,4 @@ const LineBarEitherSide : React.FC<LineBarProps> = (props : LineBarProps) => {
     </div>   
 }
 
-export default withContainer(LineBarEitherSide)
+export default LineBarEitherSide
